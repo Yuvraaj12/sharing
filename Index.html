@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>File Upload</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+    }
+    #upload-area {
+        border: 2px dashed #ccc;
+        padding: 20px;
+        text-align: center;
+        cursor: pointer;
+    }
+    #file-input {
+        display: none;
+    }
+    #file-name {
+        margin-top: 10px;
+        font-size: 16px;
+    }
+</style>
+</head>
+<body>
+
+<div id="upload-area" onclick="document.getElementById('file-input').click()">
+    <p>Click here or drag and drop a file to upload</p>
+    <input type="file" id="file-input" onchange="handleFileUpload(this.files)">
+</div>
+
+<div id="file-name"></div>
+
+<script>
+function handleFileUpload(files) {
+    const file = files[0];
+    const fileNameDisplay = document.getElementById('file-name');
+
+    if (file) {
+        fileNameDisplay.textContent = 'File selected: ' + file.name;
+
+        // You can add code here to send the file to another device
+    } else {
+        fileNameDisplay.textContent = '';
+    }
+}
+</script>
+
+</body>
+</html>
